@@ -539,35 +539,52 @@ export default function Home() {
         }} />
 
         <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full">
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left: Content */}
+            <div className="max-w-3xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 md:mb-8 leading-[1.1]" style={{ color: colors.darkNight }}>
+                <span style={{ color: colors.cadmiumRed }}>AI-<i>Ify</i></span> Your Small Business
+              </h1>
 
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 md:mb-6 leading-tight" style={{ color: colors.mirage }}>
+                Earn like a team of ten. Operate with the freedom and clarity of one.
+              </p>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 md:mb-8 leading-[1.1]" style={{ color: colors.darkNight }}>
-              <span style={{ color: colors.cadmiumRed }}>AI-<i>Ify</i></span> Your Small Business
-            </h1>
+              <p className="text-base md:text-lg mb-8 md:mb-10 max-w-xl leading-relaxed" style={{ color: colors.regentGrey }}>
+                Custom AI assistants built for your business, so you stop drowning in day-to-day tasks and finally create the freedom, consistency and growth your work deserves.
+              </p>
 
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 md:mb-6 leading-tight" style={{ color: colors.mirage }}>
-              Earn like a team of ten. Operate with the freedom and clarity of one.
-            </p>
+              <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                <Button onClick={() => setIsModalOpen(true)} size="large">
+                  Reveal Your AI Team Plan
+                  <Icons.ArrowRight />
+                </Button>
+              </div>
 
-            <p className="text-base md:text-lg mb-8 md:mb-10 max-w-xl leading-relaxed" style={{ color: colors.regentGrey }}>
-              Custom AI assistants built for your business, so you stop drowning in day-to-day tasks and finally create the freedom, consistency and growth your work deserves.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 mb-6">
-              <Button onClick={() => setIsModalOpen(true)} size="large">
-                Reveal Your AI Team Plan
-                <Icons.ArrowRight />
-              </Button>
+              <p className="text-sm flex items-center gap-2" style={{ color: colors.regentGrey }}>
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Get a clear breakdown in just 5 minutes
+              </p>
             </div>
 
-            <p className="text-sm flex items-center gap-2" style={{ color: colors.regentGrey }}>
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              Get a clear breakdown in just 5 minutes
-            </p>
+            {/* Right: Image Grid */}
+            <div className="hidden lg:grid grid-cols-2 gap-4 auto-rows-fr">
+              {/* Top Left - Crystal */}
+              <div className="row-span-2 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="/ai-crystal.png" alt="AI Technology" className="w-full h-full object-cover" />
+              </div>
+              {/* Top Right - Portrait */}
+              <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="/ai-portrait.png" alt="AI Assistant" className="w-full h-full object-cover" />
+              </div>
+              {/* Bottom Right - Brain */}
+              <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <img src="/ai-brain.png" alt="AI Intelligence" className="w-full h-full object-cover" />
+              </div>
+            </div>
           </div>
         </div>
 
