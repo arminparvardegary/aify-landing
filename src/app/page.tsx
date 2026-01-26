@@ -148,6 +148,7 @@ const aiTeam = [
     nickname: 'Cara, your content engine in heels',
     desc: 'Plans your editorial calendar, researches your niche, drafts content, and repurposes everything you create into reels, emails, carousels and scripts.',
     gradient: 'linear-gradient(135deg, #FFB1CA 0%, #B1162C 100%)',
+    image: '/ai-content-writer.png',
   },
   {
     initial: 'S',
@@ -155,6 +156,7 @@ const aiTeam = [
     nickname: "Sarah, your client's favourite person",
     desc: 'Handles onboarding, check-ins, feedback collection, and ensures every client feels seen, heard and supported throughout their journey.',
     gradient: 'linear-gradient(135deg, #00457A 0%, #002C52 100%)',
+    image: '/ai-support.png',
   },
   {
     initial: 'T',
@@ -162,6 +164,7 @@ const aiTeam = [
     nickname: 'Tom, your operational backbone',
     desc: 'Organises workflow, manages tasks and priorities, builds SOPs, fixes bottlenecks and keeps everything moving without babysitting.',
     gradient: 'linear-gradient(135deg, #231F20 0%, #000000 100%)',
+    image: '/ai-email.png',
   },
   {
     initial: 'M',
@@ -169,6 +172,7 @@ const aiTeam = [
     nickname: 'Megan, your strategic marketer',
     desc: 'Builds campaigns, writes landing pages, analyses performance and turns your data into decisions that drive growth.',
     gradient: 'linear-gradient(135deg, #B1162C 0%, #002C52 100%)',
+    image: '/ai-social-media.png',
   },
   {
     initial: 'D',
@@ -176,6 +180,7 @@ const aiTeam = [
     nickname: 'Dave, the one who never forgets to reply',
     desc: 'Starts conversations, nurtures relationships, prompts engagement, checks in with your audience and keeps your community active, warm and ready to buy.',
     gradient: 'linear-gradient(135deg, #002C52 0%, #00457A 100%)',
+    image: '/ai-social-media.png',
   },
   {
     initial: 'L',
@@ -183,6 +188,7 @@ const aiTeam = [
     nickname: 'Lorrie, your quiet closer',
     desc: 'Pre-qualifies leads, prepares call notes, drafts follow-ups, handles objections and keeps pipeline momentum strong.',
     gradient: 'linear-gradient(135deg, #939598 0%, #231F20 100%)',
+    image: '/ai-sales.png',
   },
 ];
 
@@ -532,6 +538,13 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center py-16 relative overflow-hidden" style={{ background: colors.seashell }}>
+        {/* Wave Background */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: 'url(/wave-background.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center bottom',
+          backgroundRepeat: 'no-repeat'
+        }} />
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `radial-gradient(${colors.darkNight} 1px, transparent 1px)`,
@@ -798,6 +811,10 @@ export default function Home() {
                 className="p-6 md:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group relative overflow-hidden"
                 style={{ background: colors.mirage }}
               >
+                {/* Background Image */}
+                <div className="absolute inset-0 opacity-20">
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                </div>
                 <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none" style={{ background: member.gradient, filter: 'blur(40px)' }} />
                 <div className="relative z-10">
                   <div

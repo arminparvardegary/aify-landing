@@ -82,6 +82,7 @@ const aiTeam = [
         nickname: 'Cara, your content engine in heels',
         desc: 'Plans your editorial calendar, researches your niche, drafts high-converting content, and repurposes everything you create into reels, carousels, emails and scripts without you rewriting a thing.',
         gradient: 'linear-gradient(135deg, #FFB1CA 0%, #B1162C 100%)',
+        image: '/ai-content-writer.png',
     },
     {
         initial: 'S',
@@ -89,6 +90,7 @@ const aiTeam = [
         nickname: "Sarah, your customer's favourite person",
         desc: 'Welcomes every new client, handles onboarding, answers FAQs, collects check-ins and flags risks before they become churn. Keeps clients engaged, supported and sticking around longer.',
         gradient: 'linear-gradient(135deg, #00457A 0%, #002C52 100%)',
+        image: '/ai-support.png',
     },
     {
         initial: 'T',
@@ -96,6 +98,7 @@ const aiTeam = [
         nickname: 'Tom, your operational backbone',
         desc: 'Organises your workflow, manages tasks and priorities, builds SOPs, fixes bottlenecks and keeps everything moving without babysitting. Zero chaos. Total clarity.',
         gradient: 'linear-gradient(135deg, #231F20 0%, #000000 100%)',
+        image: '/ai-email.png',
     },
     {
         initial: 'M',
@@ -103,6 +106,7 @@ const aiTeam = [
         nickname: 'Megan, Your Strategic Marketer',
         desc: 'Builds campaigns, writes landing pages, analyses performance, identifies gaps and opportunities, and turns your data into decisions you can actually use.',
         gradient: 'linear-gradient(135deg, #B1162C 0%, #002C52 100%)',
+        image: '/ai-social-media.png',
     },
     {
         initial: 'D',
@@ -110,6 +114,7 @@ const aiTeam = [
         nickname: 'Dave, the one who never forgets to reply',
         desc: 'Starts conversations, nurtures relationships, prompts engagement, checks in with your audience and keeps your community active, warm and ready to buy.',
         gradient: 'linear-gradient(135deg, #002C52 0%, #00457A 100%)',
+        image: '/ai-social-media.png',
     },
     {
         initial: 'L',
@@ -117,6 +122,7 @@ const aiTeam = [
         nickname: 'Lorrie - Your quiet closer',
         desc: 'Pre-qualifies leads, prepares call notes, drafts follow-ups, handles objections and keeps pipeline momentum moving, so you convert more without working more.',
         gradient: 'linear-gradient(135deg, #939598 0%, #231F20 100%)',
+        image: '/ai-sales.png',
     },
 ];
 
@@ -456,6 +462,13 @@ export default function ShortPage() {
 
             {/* ===== CTA 1 - HERO ===== */}
             <section className="min-h-screen flex items-center py-16 relative overflow-hidden" style={{ background: colors.seashell }}>
+                {/* Wave Background */}
+                <div className="absolute inset-0 opacity-20" style={{
+                    backgroundImage: 'url(/wave-background.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center bottom',
+                    backgroundRepeat: 'no-repeat'
+                }} />
                 <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(${colors.darkNight} 1px, transparent 1px)`, backgroundSize: '24px 24px' }} />
                 <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full">
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -554,6 +567,10 @@ export default function ShortPage() {
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
                         {aiTeam.map((member, i) => (
                             <div key={i} className="p-6 md:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl group relative overflow-hidden" style={{ background: colors.mirage }}>
+                                {/* Background Image */}
+                                <div className="absolute inset-0 opacity-20">
+                                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                                </div>
                                 <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none" style={{ background: member.gradient, filter: 'blur(40px)' }} />
                                 <div className="relative z-10">
                                     <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center mb-5 text-xl md:text-2xl font-extrabold transition-transform group-hover:scale-110 shadow-lg" style={{ background: member.gradient, color: colors.white }}>{member.initial}</div>
