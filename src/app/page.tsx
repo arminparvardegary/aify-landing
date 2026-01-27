@@ -147,7 +147,7 @@ const aiTeam = [
     name: 'Content Strategist AI',
     nickname: 'Cara, your content engine in heels',
     desc: 'Plans your editorial calendar, researches your niche, drafts content, and repurposes everything you create into reels, emails, carousels and scripts.',
-    gradient: 'linear-gradient(135deg, #FFB1CA 0%, #B1162C 100%)',
+    color: colors.softPink,
     image: '/ai-content-writer.png',
   },
   {
@@ -155,7 +155,7 @@ const aiTeam = [
     name: 'Client Success AI',
     nickname: "Sarah, your client's favourite person",
     desc: 'Handles onboarding, check-ins, feedback collection, and ensures every client feels seen, heard and supported throughout their journey.',
-    gradient: 'linear-gradient(135deg, #00457A 0%, #002C52 100%)',
+    color: colors.regalBlue,
     image: '/ai-support.png',
   },
   {
@@ -163,7 +163,7 @@ const aiTeam = [
     name: 'Operations & Systems AI',
     nickname: 'Tom, your operational backbone',
     desc: 'Organises workflow, manages tasks and priorities, builds SOPs, fixes bottlenecks and keeps everything moving without babysitting.',
-    gradient: 'linear-gradient(135deg, #231F20 0%, #000000 100%)',
+    color: colors.mirage,
     image: '/ai-email.png',
   },
   {
@@ -171,7 +171,7 @@ const aiTeam = [
     name: 'Marketing & Analytics AI',
     nickname: 'Megan, your strategic marketer',
     desc: 'Builds campaigns, writes landing pages, analyses performance and turns your data into decisions that drive growth.',
-    gradient: 'linear-gradient(135deg, #B1162C 0%, #002C52 100%)',
+    color: colors.cadmiumRed,
     image: '/ai-social-media.png',
   },
   {
@@ -179,7 +179,7 @@ const aiTeam = [
     name: 'Community AI',
     nickname: 'Dave, the one who never forgets to reply',
     desc: 'Starts conversations, nurtures relationships, prompts engagement, checks in with your audience and keeps your community active, warm and ready to buy.',
-    gradient: 'linear-gradient(135deg, #002C52 0%, #00457A 100%)',
+    color: colors.prussianBlue,
     image: '/ai-social-media.png',
   },
   {
@@ -187,7 +187,7 @@ const aiTeam = [
     name: 'Sales Support AI',
     nickname: 'Lorrie, your quiet closer',
     desc: 'Pre-qualifies leads, prepares call notes, drafts follow-ups, handles objections and keeps pipeline momentum strong.',
-    gradient: 'linear-gradient(135deg, #939598 0%, #231F20 100%)',
+    color: colors.regentGrey,
     image: '/ai-sales.png',
   },
 ];
@@ -304,24 +304,13 @@ const Button = ({
   );
 };
 
-// Scroll to top button
-const ScrollToTop = ({ show }: { show: boolean }) => (
-  <button
-    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-    className={`fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
-      }`}
-    style={{ background: colors.cadmiumRed, color: colors.white }}
-  >
-    <Icons.ArrowUp />
-  </button>
-);
+
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -333,14 +322,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      setShowScrollTop(window.scrollY > 500);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
 
   useEffect(() => {
     if (isModalOpen) {
@@ -349,6 +331,14 @@ export default function Home() {
       document.body.style.overflow = 'unset';
     }
   }, [isModalOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -361,7 +351,6 @@ export default function Home() {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    console.log('Form submitted:', formData);
     setIsSubmitting(false);
     setSubmitStatus('success');
 
@@ -382,6 +371,54 @@ export default function Home() {
 
   return (
     <main className="min-h-screen overflow-x-hidden">
+      {/* Navigation */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'py-3 shadow-lg' : 'py-4 md:py-5'
+        }`}
+        style={{ background: 'rgba(246, 242, 239, 0.98)', backdropFilter: 'blur(12px)' }}
+      >
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
+          <a href="#" className="text-xl md:text-2xl font-extrabold tracking-tight">
+            <span style={{ color: colors.cadmiumRed }}>AI</span>
+            <span style={{ color: colors.darkNight }}>-<i>Ify</i></span>
+          </a>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#solution" className="text-sm font-medium hover:text-[#B1162C] transition-colors" style={{ color: colors.mirage }}>Solution</a>
+            <a href="#process" className="text-sm font-medium hover:text-[#B1162C] transition-colors" style={{ color: colors.mirage }}>How It Works</a>
+            <a href="#faq" className="text-sm font-medium hover:text-[#B1162C] transition-colors" style={{ color: colors.mirage }}>FAQ</a>
+            <Button onClick={() => setIsModalOpen(true)} size="default">Apply Now</Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 -mr-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ color: colors.darkNight }}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <Icons.X /> : <Icons.Menu />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden absolute top-full left-0 right-0 transition-all duration-300 overflow-hidden border-t ${
+            mobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+          style={{ background: colors.seashell, borderColor: colors.platinum }}
+        >
+          <div className="px-4 py-6 flex flex-col gap-4">
+            <a href="#solution" onClick={() => setMobileMenuOpen(false)} className="py-3 font-medium border-b" style={{ color: colors.mirage, borderColor: colors.platinum }}>Solution</a>
+            <a href="#process" onClick={() => setMobileMenuOpen(false)} className="py-3 font-medium border-b" style={{ color: colors.mirage, borderColor: colors.platinum }}>How It Works</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="py-3 font-medium border-b" style={{ color: colors.mirage, borderColor: colors.platinum }}>FAQ</a>
+            <Button onClick={() => { setMobileMenuOpen(false); setIsModalOpen(true); }} className="w-full text-center mt-2">Apply Now</Button>
+          </div>
+        </div>
+      </nav>
+
       {/* Application Form Modal */}
       {isModalOpen && (
         <div
@@ -410,12 +447,12 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: colors.darkNight }}>Application Received!</h3>
-                <p className="text-lg" style={{ color: colors.regentGrey }}>We'll send your personalized AI Team Plan to your inbox shortly.</p>
+                <p className="text-lg" style={{ color: colors.regentGrey }}>We&apos;ll send your personalised AI Team Plan to your inbox shortly.</p>
               </div>
             ) : (
               <>
                 <h2 className="text-2xl md:text-3xl font-extrabold mb-2" style={{ color: colors.darkNight }}>Apply for Your AI Team Plan</h2>
-                <p className="mb-6" style={{ color: colors.regentGrey }}>Tell us about your business and we'll create a personalized blueprint.</p>
+                <p className="mb-6" style={{ color: colors.regentGrey }}>Tell us about your business and we&apos;ll create a personalised blueprint.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
@@ -537,7 +574,7 @@ export default function Home() {
       )}
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center py-16 relative overflow-hidden" style={{ background: colors.seashell }}>
+      <section className="min-h-screen flex items-center pt-20 md:pt-24 pb-16 relative overflow-hidden" style={{ background: colors.seashell }}>
         {/* Wave Background */}
         <div className="absolute inset-0 opacity-20" style={{
           backgroundImage: 'url(/wave-background.png)',
@@ -601,9 +638,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Gradient Orb */}
-        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] pointer-events-none opacity-30 md:opacity-50" style={{
-          background: `radial-gradient(circle, ${colors.cadmiumRed}20 0%, transparent 70%)`,
+        {/* Decorative Circle */}
+        <div className="absolute top-1/4 right-0 w-[300px] h-[300px] pointer-events-none opacity-5 rounded-full" style={{
+          background: colors.cadmiumRed,
           filter: 'blur(60px)'
         }} />
 
@@ -614,10 +651,10 @@ export default function Home() {
       <section className="py-12 md:py-16 lg:py-20" style={{ background: colors.white }}>
         <div className="max-w-5xl mx-auto px-4 md:px-6">
           <div
-            className="p-8 md:p-12 lg:p-16 rounded-2xl md:rounded-3xl text-center relative overflow-hidden shadow-xl"
-            style={{ background: `linear-gradient(135deg, ${colors.prussianBlue} 0%, ${colors.regalBlue} 100%)` }}
+            className="p-8 md:p-12 lg:p-16 rounded-2xl md:rounded-3xl text-center relative overflow-hidden shadow-xl border-2"
+            style={{ background: colors.prussianBlue, borderColor: colors.regalBlue }}
           >
-            <div className="absolute inset-0 opacity-10" style={{
+            <div className="absolute inset-0 opacity-5" style={{
               backgroundImage: `radial-gradient(${colors.white} 1px, transparent 1px)`,
               backgroundSize: '20px 20px'
             }} />
@@ -750,8 +787,8 @@ export default function Home() {
           </div>
 
           <div
-            className="p-8 md:p-12 rounded-2xl md:rounded-3xl text-center"
-            style={{ background: `linear-gradient(135deg, ${colors.prussianBlue} 0%, ${colors.regalBlue} 100%)`, color: colors.white }}
+            className="p-8 md:p-12 rounded-2xl md:rounded-3xl text-center border-2"
+            style={{ background: colors.prussianBlue, color: colors.white, borderColor: colors.regalBlue }}
           >
             <p className="text-lg md:text-xl lg:text-2xl leading-relaxed">
               <strong>People aren&apos;t burning out because they&apos;re incapable.</strong><br />
@@ -765,10 +802,10 @@ export default function Home() {
       <section className="py-12 md:py-16 lg:py-20" style={{ background: colors.seashell }}>
         <div className="max-w-5xl mx-auto px-4 md:px-6">
           <div
-            className="p-8 md:p-12 lg:p-16 rounded-2xl md:rounded-3xl text-center shadow-2xl relative overflow-hidden"
-            style={{ background: colors.white }}
+            className="p-8 md:p-12 lg:p-16 rounded-2xl md:rounded-3xl text-center shadow-2xl relative overflow-hidden border-2"
+            style={{ background: colors.white, borderColor: colors.cadmiumRed }}
           >
-            <div className="absolute top-0 left-0 w-full h-1" style={{ background: `linear-gradient(90deg, ${colors.cadmiumRed}, ${colors.prussianBlue})` }} />
+            <div className="absolute top-0 left-0 w-full h-2" style={{ background: colors.cadmiumRed }} />
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5 md:mb-6" style={{ color: colors.darkNight }}>
               Find Out What Your Business Actually Needs
@@ -815,11 +852,10 @@ export default function Home() {
                 <div className="absolute inset-0 opacity-20">
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                 </div>
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none" style={{ background: member.gradient, filter: 'blur(40px)' }} />
                 <div className="relative z-10">
                   <div
                     className="w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center mb-5 text-xl md:text-2xl font-extrabold transition-transform group-hover:scale-110 shadow-lg"
-                    style={{ background: member.gradient, color: colors.white }}
+                    style={{ background: member.color, color: colors.white }}
                   >
                     {member.initial}
                   </div>
@@ -832,15 +868,15 @@ export default function Home() {
           </div>
 
           <div
-            className="p-8 md:p-12 rounded-2xl md:rounded-3xl text-center relative overflow-hidden"
-            style={{ background: `linear-gradient(135deg, ${colors.prussianBlue} 0%, ${colors.regalBlue} 100%)` }}
+            className="p-8 md:p-12 rounded-2xl md:rounded-3xl text-center relative overflow-hidden border-2"
+            style={{ background: colors.prussianBlue, borderColor: colors.regalBlue }}
           >
-            <div className="absolute inset-0 opacity-10" style={{
+            <div className="absolute inset-0 opacity-5" style={{
               backgroundImage: `radial-gradient(${colors.white} 1px, transparent 1px)`,
               backgroundSize: '20px 20px'
             }} />
             <div className="relative z-10">
-              <p className="text-lg md:text-xl font-semibold mb-4">We don&apos;t install generic automations.</p>
+              <p className="text-lg md:text-xl font-semibold mb-4" style={{ color: colors.white }}>We don&apos;t install generic automations.</p>
               <p className="mb-4 text-sm md:text-base" style={{ color: colors.platinum }}>
                 We build an AI team that understands your offers, your clients, your language, your data, and the way you work.
               </p>
@@ -1146,7 +1182,22 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* Footer */}
+      <footer className="py-16 md:py-20" style={{ background: colors.darkNight, color: colors.white, borderTop: `1px solid ${colors.mirage}` }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
+            <a href="#" className="text-2xl md:text-3xl font-extrabold hover:opacity-80 transition-opacity">
+              <span style={{ color: colors.cadmiumRed }}>AI</span><span>-<i>Ify</i></span>
+            </a>
+            <p className="text-base text-center md:text-left" style={{ color: colors.regentGrey }}>
+              Custom AI assistants for small businesses.
+            </p>
+            <p className="text-sm md:text-base" style={{ color: colors.regentGrey }}>
+              &copy; 2026 AI-Ify. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

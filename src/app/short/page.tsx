@@ -221,22 +221,11 @@ const Button = ({
     );
 };
 
-// Scroll to top
-const ScrollToTop = ({ show }: { show: boolean }) => (
-    <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={`fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
-        style={{ background: colors.cadmiumRed, color: colors.white }}
-    >
-        <Icons.ArrowUp />
-    </button>
-);
+
 
 export default function ShortPage() {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-    const [showScrollTop, setShowScrollTop] = useState(false);
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -249,14 +238,7 @@ export default function ShortPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-            setShowScrollTop(window.scrollY > 500);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+
 
     useEffect(() => {
         if (isModalOpen) {
@@ -277,7 +259,6 @@ export default function ShortPage() {
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1500));
 
-        console.log('Form submitted:', formData);
         setIsSubmitting(false);
         setSubmitStatus('success');
 
@@ -327,12 +308,12 @@ export default function ShortPage() {
                                     </svg>
                                 </div>
                                 <h3 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: colors.darkNight }}>Application Received!</h3>
-                                <p className="text-lg" style={{ color: colors.regentGrey }}>We'll send your personalized AI Team Plan to your inbox shortly.</p>
+                                <p className="text-lg" style={{ color: colors.regentGrey }}>We&apos;ll send your personalized AI Team Plan to your inbox shortly.</p>
                             </div>
                         ) : (
                             <>
                                 <h2 className="text-2xl md:text-3xl font-extrabold mb-2" style={{ color: colors.darkNight }}>Apply for Your AI Team Plan</h2>
-                                <p className="mb-6" style={{ color: colors.regentGrey }}>Tell us about your business and we'll create a personalized blueprint.</p>
+                                <p className="mb-6" style={{ color: colors.regentGrey }}>Tell us about your business and we&apos;ll create a personalized blueprint.</p>
 
                                 <form onSubmit={handleSubmit} className="space-y-5">
                                     {/* Name */}
