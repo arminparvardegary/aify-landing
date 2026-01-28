@@ -187,15 +187,15 @@ export default function ShortPage() {
                     />
                   </div>
 
-                  <div>
+                  <div className="relative">
                     <label className="block text-sm font-semibold mb-2" style={{ color: colors.darkNight }}>Business Type *</label>
                     <select
                       name="businessType"
                       value={formData.businessType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-[#B1162C] transition-colors"
-                      style={{ borderColor: colors.platinum }}
+                      className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:border-[#B1162C] transition-colors appearance-none cursor-pointer"
+                      style={{ borderColor: colors.platinum, paddingRight: '3rem' }}
                     >
                       <option value="">Select type</option>
                       <option value="creator">Creator</option>
@@ -204,6 +204,11 @@ export default function ShortPage() {
                       <option value="founder">Founder</option>
                       <option value="small-business">Small Business</option>
                     </select>
+                    <div className="absolute right-4 top-[2.7rem] pointer-events-none">
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke={colors.darkNight} strokeWidth="2">
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </div>
                   </div>
 
                   <div>
