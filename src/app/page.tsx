@@ -621,18 +621,20 @@ export default function Home() {
             </div>
 
             {/* Right: Image Grid */}
-            <div className="hidden lg:grid grid-cols-2 gap-4 auto-rows-fr">
-              {/* Top Left - Crystal */}
-              <div className="row-span-2 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                <img src="/ai-crystal.png" alt="AI Technology" className="w-full h-full object-cover" />
+            <div className="hidden lg:flex flex-col gap-4">
+              <div className="flex gap-4">
+                {/* Top Left - Crystal */}
+                <div className="flex-1 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                  <img src="/ai-crystal.png" alt="AI Technology" className="w-full h-64 object-cover" />
+                </div>
+                {/* Top Right - Portrait */}
+                <div className="flex-1 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                  <img src="/ai-portrait.png" alt="AI Assistant" className="w-full h-64 object-cover" />
+                </div>
               </div>
-              {/* Top Right - Portrait */}
+              {/* Bottom - Brain (Full Width) */}
               <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                <img src="/ai-portrait.png" alt="AI Assistant" className="w-full h-full object-cover" />
-              </div>
-              {/* Bottom Right - Brain */}
-              <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                <img src="/ai-brain.png" alt="AI Intelligence" className="w-full h-full object-cover" />
+                <img src="/ai-brain.png" alt="AI Intelligence" className="w-full h-64 object-cover" />
               </div>
             </div>
           </div>
