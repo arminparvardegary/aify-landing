@@ -117,27 +117,22 @@ const stats = [
   { number: '50-70%', desc: 'Margin cut by hiring one person' },
 ];
 
-// Updated pain points - added the missing one
+// Condensed pain points
 const painPoints = [
-  "You're doing too much for too little return.",
   "Output expectations have doubled; your capacity hasn't.",
-  'Tech changes weekly and you "just want it done properly."',
-  "You've outgrown your workflow but don't know what to build next.",
   "Content takes hours, reach is inconsistent, conversions unpredictable.",
   "You spend more time inside the business than leading it.",
   "Burnout rises because you're wearing every hat.",
   "Hiring even one person can cut your margin by 50 to 70%.",
 ];
 
-// Updated reality items - added the missing one
+// Condensed reality items
 const realityItems = [
   { Icon: Icons.TrendDown, text: 'Organic reach is declining across all platforms.' },
   { Icon: Icons.Robot, text: 'AI-generated content now competes directly with human creators.' },
-  { Icon: Icons.BarChart, text: 'Content supply has exploded; attention has not.' },
-  { Icon: Icons.Zap, text: 'Algorithms reward structure, consistency and volume, not creativity alone.' },
+  { Icon: Icons.Zap, text: 'Algorithms reward consistency and volume over creativity alone.' },
   { Icon: Icons.Briefcase, text: 'Operational load for small businesses has never been higher.' },
-  { Icon: Icons.Heart, text: 'Audiences want clarity, speed, relevance and connection.' },
-  { Icon: Icons.Users, text: 'Founders are expected to be strategists, creators, operators and analysts at once.' },
+  { Icon: Icons.Users, text: 'Founders must be strategists, creators, operators and analysts at once.' },
 ];
 
 // Fixed AI Team descriptions
@@ -201,15 +196,11 @@ const processSteps = [
 
 const packageItems = [
   'Full AI assistant build (done-for-you)',
-  'Done-with-you strategic sprint',
   'Workflow mapping + automation setup',
   'Personalised content engine',
-  'Lead-gen + onboarding infrastructure',
-  'Community + retention systems',
+  'Lead-gen + client onboarding systems',
   'Data dashboards + reporting',
-  'Templates, prompts, scripts and SOPs',
   'Dedicated support and optimisation',
-  'Access to our internal frameworks, tools, and libraries',
 ];
 
 const outcomes = [
@@ -227,12 +218,9 @@ const outcomes = [
 const audienceItems = [
   'More leads + sales without breaking bandwidth',
   'A content engine that performs like an in-house media team',
-  'Distribution that amplifies brand and authority',
-  'Trust-building content at scale',
   'Better retention and high-lifetime-value clients',
   'Systems that work together, not against each other',
   'Operational clarity instead of constant firefighting',
-  'Infrastructure that supports scale',
   'Leverage without payroll blowouts',
   'A competitive edge in an AI-accelerated market',
 ];
@@ -766,7 +754,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5 mb-12 md:mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-12 md:mb-16">
             {realityItems.map((item, i) => (
               <div
                 key={i}
@@ -896,48 +884,22 @@ export default function Home() {
             Why This Matters
           </h2>
 
-          <div className="space-y-6 md:space-y-8">
-            <p className="text-xl md:text-2xl lg:text-3xl font-medium" style={{ color: colors.mirage }}>
-              AI has increased the volume of content…<br />
-              <span style={{ color: colors.regentGrey }}>but it hasn&apos;t increased human connection.</span>
+          <div className="space-y-6">
+            <p className="text-xl md:text-2xl font-medium" style={{ color: colors.mirage }}>
+              AI has increased content volume, but not human connection.
             </p>
 
-            <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold" style={{ color: colors.cadmiumRed }}>
+            <p className="text-2xl md:text-3xl font-extrabold" style={{ color: colors.cadmiumRed }}>
               Connection is your only competitive advantage.
             </p>
 
             <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: colors.mirage }}>
-              To build it, you need space: space to think, create, lead and show up as the founder your audience wants to follow.
+              Your AI team handles execution so you can return to your highest-value role: the strategist, the storyteller, the leader.
             </p>
 
-            <p className="text-lg md:text-xl font-bold" style={{ color: colors.darkNight }}>
-              Your AI team gives you that space back.
+            <p className="text-lg md:text-xl font-bold pt-4" style={{ color: colors.darkNight }}>
+              In a world where AI can do almost everything, the one thing it cannot replace is you.
             </p>
-
-            <p className="text-base md:text-lg" style={{ color: colors.mirage }}>
-              It handles execution so you can return to your highest-value role:
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 my-6 md:my-8">
-              {['the strategist', 'the storyteller', 'the leader'].map((role, i) => (
-                <span
-                  key={i}
-                  className="px-5 py-2.5 rounded-full text-base md:text-lg font-semibold shadow-md"
-                  style={{ background: colors.white, color: colors.prussianBlue, border: `2px solid ${colors.prussianBlue}` }}
-                >
-                  {role}
-                </span>
-              ))}
-            </div>
-
-            <div className="pt-6 md:pt-8">
-              <p className="text-lg md:text-xl" style={{ color: colors.mirage }}>
-                Because in a world where AI can do almost everything,
-              </p>
-              <p className="text-xl md:text-2xl font-bold mt-2" style={{ color: colors.darkNight }}>
-                the one thing it cannot replace is you.
-              </p>
-            </div>
           </div>
         </div>
       </section>
