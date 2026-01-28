@@ -574,79 +574,33 @@ export default function Home() {
       )}
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center pt-20 md:pt-24 pb-16 relative overflow-hidden" style={{ background: colors.seashell }}>
-        {/* Wave Background */}
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: 'url(/wave-background.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center bottom',
-          backgroundRepeat: 'no-repeat'
-        }} />
+      <section className="min-h-screen flex items-center justify-center pt-20 md:pt-24 pb-16 relative overflow-hidden" style={{ background: colors.seashell }}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: `radial-gradient(${colors.darkNight} 1px, transparent 1px)`,
           backgroundSize: '24px 24px'
         }} />
 
-        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left: Content */}
-            <div className="max-w-3xl">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 md:mb-8 leading-[1.1]" style={{ color: colors.darkNight }}>
-                <span style={{ color: colors.cadmiumRed }}>AI-<i>Ify</i></span> Your Small Business
-              </h1>
+        <div className="max-w-4xl mx-auto px-4 md:px-6 relative z-10 w-full text-center">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 md:mb-8 leading-[1.1]" style={{ color: colors.darkNight }}>
+            <span style={{ color: colors.cadmiumRed }}>AI-<i>Ify</i></span> Your Small Business
+          </h1>
 
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 md:mb-6 leading-tight" style={{ color: colors.mirage }}>
-                Earn like a team of ten. Operate with the freedom and clarity of one.
-              </p>
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 md:mb-8 leading-tight" style={{ color: colors.mirage }}>
+            Earn like a team of ten. Operate with the freedom of one.
+          </p>
 
-              <p className="text-base md:text-lg mb-8 md:mb-10 max-w-xl leading-relaxed" style={{ color: colors.regentGrey }}>
-                Custom AI assistants built for your business, so you stop drowning in day-to-day tasks and finally create the freedom, consistency and growth your work deserves.
-              </p>
+          <p className="text-base md:text-lg lg:text-xl mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: colors.regentGrey }}>
+            Custom AI assistants that handle the day-to-day, so you can focus on growth.
+          </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                <Button onClick={() => setIsModalOpen(true)} size="large">
-                  Reveal Your AI Team Plan
-                  <Icons.ArrowRight />
-                </Button>
-              </div>
-
-              <p className="text-sm flex items-center gap-2" style={{ color: colors.regentGrey }}>
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-                Get a clear breakdown in just 5 minutes
-              </p>
-            </div>
-
-            {/* Right: Image Grid */}
-            <div className="hidden lg:flex flex-col gap-4">
-              <div className="flex gap-4">
-                {/* Top Left - Crystal */}
-                <div className="flex-1 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                  <img src="/ai-crystal.png" alt="AI Technology" className="w-full h-64 object-cover" />
-                </div>
-                {/* Top Right - Portrait */}
-                <div className="flex-1 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                  <img src="/ai-portrait.png" alt="AI Assistant" className="w-full h-64 object-cover" />
-                </div>
-              </div>
-              {/* Bottom - Brain (Full Width) */}
-              <div className="rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                <img src="/ai-brain.png" alt="AI Intelligence" className="w-full h-64 object-cover" />
-              </div>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button onClick={() => setIsModalOpen(true)} size="large">
+              Get Your AI Team Plan
+              <Icons.ArrowRight />
+            </Button>
           </div>
         </div>
-
-        {/* Decorative Circle */}
-        <div className="absolute top-1/4 right-0 w-[300px] h-[300px] pointer-events-none opacity-5 rounded-full" style={{
-          background: colors.cadmiumRed,
-          filter: 'blur(60px)'
-        }} />
-
-
       </section>
 
       {/* CTA #1 - After Hero */}
